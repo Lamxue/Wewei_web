@@ -4,7 +4,7 @@
 
 
 
-<img src="_media logo.png" alt="logo" title=":60%" style="zoom:15%;"  >
+<img src="_media/logo.png" alt="logo" title=":60%" style="zoom:15%;"  >
 
 * [WHO IS LEA](whoislea)
 
