@@ -6,7 +6,7 @@
 ——《海街日记》
 ```
 
-[HERE TO START](articles/lea)
+[HERE TO START](lea)
 
 
 
