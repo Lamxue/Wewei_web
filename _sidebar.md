@@ -6,7 +6,7 @@
 
 <img src="_media/logo.png" alt="logo" title=":60%" style="zoom:15%;" />
 
-* [WHO IS LEA](docs/lea.md)
+* [WHO IS LEA](#/)
 
 * Soft Whisper
   * [汤匙里的满月](docs/汤匙里的满月.md)
