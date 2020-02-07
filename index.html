@@ -17,11 +17,11 @@
       var footer = [
         '<hr/>',
         '<footer>',
-        '<span><Powered by Lea&copy;2020.</span>',
+        '<span>Powered by Lea&copy;2020.</span>',
         '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
         '</footer>'
       ].join('');
-      
+
       hook.afterEach(function(html) {
         return html + footer;
       });
