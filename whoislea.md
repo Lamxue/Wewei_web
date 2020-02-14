@@ -1,10 +1,8 @@
 # WHO IS LEA's
 
-<!--panels:start--> 
-
-<!--div:title-panel-->
-
 ## 个人简介
+
+<!--panels:start--> 
 
 <!--div:left-panel-->
 
@@ -15,7 +13,7 @@
 
 <!--div:right-panel-->
 
-<center><img src="_images/640-1673578.png" alt="订阅号" style="zoom:50%;" /></center>
+<img src="_images/640-1673578.png" alt="订阅号" style="zoom:50%;" />
 
 <!--panels:end-->
 
