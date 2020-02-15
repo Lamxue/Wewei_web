@@ -7,10 +7,11 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 </head>
 <body>
   <div id="app"></div>
+  <div id="gitalk-container"></div>
   <script>
     window.$docsify = {
       plugins: [
@@ -44,18 +45,18 @@
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
-  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
   <script>
     const gitalk = new Gitalk({
-      clientID: 'Github Application Client ID',
-      clientSecret: 'Github Application Client Secret',
-      repo: 'Wewei_web',
-      owner: 'Lamxue',
-      admin: ['Github repo collaborators, only these guys can initialize github issues'],
-      // facebook-like distraction free mode
-      distractionFreeMode: false
+      clientID: 'GitHub Application Client ID',
+      clientSecret: 'GitHub Application Client Secret',
+      repo: 'GitHub repo',
+      owner: 'GitHub repo owner',
+      admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
+      id: location.pathname,      // Ensure uniqueness and length less than 50
+      distractionFreeMode: false  // Facebook-like distraction free mode
     })
+  gitalk.render('gitalk-container')
   </script>
 <script src="//unpkg.com/docsify-glossary/dist/docsify-glossary.min.js"></script>
 </body>
