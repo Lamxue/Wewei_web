@@ -5,7 +5,100 @@
   <title>Wind娓_Lea</title>
   <meta name="description" content="探索设计与技术的现代表达">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --arc-primary: #000000;
+      --arc-secondary: #FFFFFF;
+      --arc-accent: #4B78FF;
+      --arc-glass: rgba(255, 255, 255, 0.92);
+      --arc-spacing: 28px;
+    }
+
+    /* 修复侧边栏定位问题 */
+    .app-nav, .sidebar {
+      width: 280px !important;
+      background: var(--arc-glass) !important;
+      backdrop-filter: blur(40px);
+      border-right: 1px solid rgba(0, 0, 0, 0.08);
+      padding: var(--arc-spacing) !important;
+      transform: none !important; /* 修复移动端错位 */
+    }
+
+    /* 修复内容区偏移 */
+    .content {
+      margin-left: 280px !important;
+      padding: calc(var(--arc-spacing)*1.5) !important;
+      max-width: 780px;
+    }
+
+    /* 修复标题锚点偏移 */
+    .markdown-section h1:hover .anchor span,
+    .markdown-section h2:hover .anchor span,
+    .markdown-section h3:hover .anchor span {
+      color: var(--arc-accent) !important;
+    }
+
+    /* 修复代码块换行 */
+    pre code {
+      white-space: pre-wrap !important;
+      word-break: break-word !important;
+      padding: 1.2rem !important;
+    }
+
+    /* 修复表格溢出 */
+    table {
+      display: table !important;
+      width: 100% !important;
+      table-layout: fixed;
+    }
+
+    td, th {
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* 修复图片自适应 */
+    .markdown-section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    /* 修复列表缩进 */
+    .markdown-section ul, 
+    .markdown-section ol {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin: 0.6rem 0;
+    }
+
+    /* 移动端优化 */
+    @media (max-width: 768px) {
+      .app-nav, .sidebar {
+        width: 100% !important;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      
+      .sidebar-toggle {
+        display: block !important;
+        background: var(--arc-accent) !important;
+      }
+
+      .content {
+        margin-left: 0 !important;
+        padding: var(--arc-spacing) !important;
+      }
+
+      body.close .sidebar {
+        transform: translateX(0) !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="app"></div>
@@ -14,8 +107,10 @@
     window.$docsify = {
       loadSidebar: true,
       subMaxLevel: 3,
+      // 修复锚点定位偏移
       routerMode: 'history',
       relativePath: true,
+      // 修复移动端点击穿透
       executeScript: true
     }
   </script>
