@@ -5,130 +5,20 @@
   <title>Wind娓_Lea</title>
   <meta name="description" content="探索设计与技术的现代表达">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    :root {
-      --arc-primary: #000000;
-      --arc-secondary: #FFFFFF;
-      --arc-accent: #4B78FF;  /* Arc品牌蓝 */
-      --arc-glass: rgba(255, 255, 255, 0.85);
-      --arc-spacing: 28px;
-    }
-
-    /* 基础架构 */
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 
-                  'Segoe UI', system-ui, sans-serif;
-      background: var(--arc-secondary);
-      color: var(--arc-primary);
-      line-height: 1.5;
-    }
-
-    /* 毛玻璃侧边栏 */
-    .sidebar {
-      width: 260px;
-      background: var(--arc-glass) !important;
-      backdrop-filter: blur(40px);
-      border-right: 1px solid rgba(0, 0, 0, 0.08);
-      padding: var(--arc-spacing);
-    }
-
-    .sidebar-nav li a {
-      color: var(--arc-primary) !important;
-      padding: 10px 16px !important;
-      border-radius: 8px;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .sidebar-nav li a:hover {
-      background: rgba(0, 0, 0, 0.03);
-    }
-
-    /* 主内容区 */
-    .markdown-section {
-      margin-left: 260px;
-      padding: calc(var(--arc-spacing)*1.5);
-      max-width: 780px;
-    }
-
-    /* 标题系统 */
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      margin: 1.2em 0;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin: 2em 0 1em;
-      position: relative;
-    }
-
-    h2::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 2px;
-      background: var(--arc-accent);
-      margin-top: 8px;
-    }
-
-    /* 现代化表格 */
-    table {
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    }
-
-    th {
-      background: var(--arc-accent) !important;
-      color: var(--arc-secondary) !important;
-      font-weight: 500;
-    }
-
-    /* 动态代码块 */
-    pre code {
-      background: rgba(75, 120, 255, 0.03) !important;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      border-radius: 8px;
-      padding: 1.6rem !important;
-    }
-
-    /* 品牌化链接 */
-    a {
-      color: var(--arc-accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: all 0.25s;
-    }
-
-    a:hover {
-      border-color: currentColor;
-    }
-
-    /* 分页导航 */
-    .pagination-item {
-      padding: 12px 24px !important;
-      border-radius: 8px;
-      border: 1px solid rgba(0, 0, 0, 0.08) !important;
-    }
-
-    /* 移动端适配 */
-    @media (max-width: 768px) {
-      .sidebar {
-        transform: translateX(-100%);
-      }
-      
-      .markdown-section {
-        margin-left: 0;
-        padding: var(--arc-spacing);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app"></div>
+
+  <script>
+    window.$docsify = {
+      loadSidebar: true,
+      subMaxLevel: 3,
+      routerMode: 'history',
+      relativePath: true,
+      executeScript: true
+    }
+  </script>
 
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
