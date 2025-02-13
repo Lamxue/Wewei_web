@@ -1,155 +1,110 @@
-/* 字体定义（保留原有字体配置） */
-@font-face { ... } 
-/* 保持所有现有的@font-face规则不变 */
-
-/* 设计系统变量 */
-:root {
-  --primary-black: #1a1a1a;
-  --primary-white: #ffffff;
-  --steel-gray: #4a4a4a;
-  --bv-green: #003D2B;
-  --code-bg: rgba(0, 61, 43, 0.05);
-  --transition-speed: 0.3s;
-}
-
 /* 基础样式重置 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --primary-green: #8BC34A;
+  --primary-brown: #795548;
+  --secondary-green: #DCEDC8;
+  --secondary-brown: #D7CCC8;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --sidebar-width: 280px;
 }
 
+/* MUJI风格字体 */
 body {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 
-               'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: var(--primary-white);
-  color: var(--primary-black);
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Hiragino Sans GB', 'Noto Sans CJK SC', 
+               'Source Han Sans CN', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
 }
 
-/* 代码字体配置 */
-code, pre, .monospace {
-  font-family: 'Roboto Mono', Menlo, Consolas, monospace !important;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-}
-
-/* 导航栏高级改造 */
+/* 侧边栏优化 */
 .sidebar {
-  background: rgba(255, 255, 255, 0.96) !important;
-  backdrop-filter: saturate(180%) blur(20px);
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
-  padding-top: 20px;
+  width: var(--sidebar-width) !important;
+  padding: 20px 15px !important;
+  background: var(--secondary-brown) !important;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
 }
 
-.sidebar-nav li a {
-  color: var(--steel-gray) !important;
-  transition: color var(--transition-speed);
+.sidebar-toggle {
+  background: var(--primary-brown) !important;
+  padding: 12px !important;
 }
 
-.sidebar-nav li a:hover {
-  color: var(--bv-green) !important;
-  background: rgba(0, 61, 43, 0.03);
+/* 侧边栏菜单 */
+.sidebar-nav li {
+  position: relative;
+  margin: 8px 0;
 }
 
-/* 主内容区升级 */
-.markdown-section {
-  max-width: 780px;
-  padding: 80px 40px;
-  font-size: 1.05em;
-}
-
-.markdown-section h1 {
-  font-size: 2.6rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  margin: 2em 0 1em;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.markdown-section h2 {
-  font-size: 2rem;
-  margin-top: 2.5em;
-  color: var(--primary-black);
-}
-
-/* 表格美学优化 */
-table {
-  border-collapse: collapse;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-}
-
-tr:nth-child(2n) {
-  background: rgba(0, 0, 0, 0.008);
-}
-
-th {
-  background: var(--bv-green) !important;
-  color: white !important;
-  font-weight: 500 !important;
-}
-
-td, th {
-  border: 1px solid rgba(0, 0, 0, 0.04) !important;
-  padding: 12px 16px !important;
-}
-
-/* 代码块高级样式 */
-pre code {
-  background: var(--code-bg) !important;
-  border-radius: 8px;
-  padding: 1.4rem !important;
-  line-height: 1.5;
-  border: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-code:not(pre code) {
-  background: var(--code-bg) !important;
-  padding: 0.2em 0.4em !important;
+.sidebar-nav li > a {
+  display: block;
+  padding: 10px 15px !important;
+  color: var(--text-primary) !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s;
   border-radius: 4px;
 }
 
-/* 交互元素升级 */
-a {
-  color: var(--bv-green);
-  text-decoration: none;
-  transition: color var(--transition-speed);
+.sidebar-nav li > a:hover {
+  background: rgba(121, 85, 72, 0.08);
+  text-overflow: clip;
 }
 
-a:hover {
-  color: #002618;
-  text-decoration: underline;
+/* 折叠图标 */
+.sidebar-nav li.collapsible > a::after {
+  content: '▶';
+  position: absolute;
+  right: 15px;
+  color: var(--primary-brown);
+  transition: transform 0.2s;
 }
 
-hr {
-  border-color: rgba(0, 0, 0, 0.08);
-  margin: 2.5em 0;
+.sidebar-nav li.collapsible.active > a::after {
+  content: '▼';
+  transform: rotate(90deg);
 }
 
-/* 响应式优化 */
+/* 主内容区优化 */
+.markdown-section {
+  max-width: 780px;
+  padding: 40px 5%;
+  margin-left: var(--sidebar-width);
+  text-align: left !important;
+}
+
+.markdown-section p {
+  line-height: 1.6;
+  margin: 1.2em 0;
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3 {
+  margin: 1.8em 0 1em;
+  font-weight: 400;
+}
+
+/* 分页导航 */
+.pagination-item {
+  font-size: 0.9em !important;
+  color: var(--primary-brown) !important;
+}
+
+/* 响应式处理 */
 @media (max-width: 768px) {
-  .markdown-section {
-    padding: 60px 20px;
-    font-size: 1em;
-  }
-  
-  .markdown-section h1 {
-    font-size: 2rem;
-    margin-top: 1.5em;
-  }
-  
   .sidebar {
-    width: 280px !important;
+    transform: translateX(-100%);
   }
-}
+  
+  .sidebar-toggle {
+    display: block;
+  }
 
-/* 苹果风格加载动画 */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.markdown-section > * {
-  animation: fadeIn 0.4s ease-out;
+  .markdown-section {
+    margin-left: 0;
+    padding: 30px 20px;
+  }
 }
