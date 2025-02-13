@@ -6,87 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="📚 探索设计与技术的诗意表达">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <style>
-    /* Material Palette 配色方案 */
-    :root {
-      --primary-green: #8BC34A;  /* Light Green 500 */
-      --primary-brown: #795548;  /* Brown 500 */
-      --secondary-green: #DCEDC8; /* Light Green 100 */
-      --secondary-brown: #D7CCC8; /* Brown 100 */
-      --text-primary: #212121;
-      --text-secondary: #757575;
-    }
-
-    /* 基础样式 */
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 
-                   'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #FFF;
-      color: var(--text-primary);
-      line-height: 1.8;
-    }
-
-    /* 导航栏样式 */
-    .sidebar {
-      background: var(--secondary-brown) !important;
-      border-right: 2px solid var(--primary-brown);
-    }
-
-    .sidebar-nav li a {
-      color: var(--text-primary) !important;
-      padding: 8px 20px !important;
-    }
-
-    .sidebar-nav li a::before {
-      content: '📄 ';
-    }
-
-    /* 主内容区 */
-    .markdown-section {
-      max-width: 780px;
-      padding: 40px;
-    }
-
-    h1::before { content: '🌱 '; }
-    h2::before { content: '✨ '; }
-    h3::before { content: '📌 '; }
-
-    /* 表格样式 */
-    table {
-      border: 2px solid var(--primary-brown);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    th {
-      background: var(--primary-green) !important;
-      color: white !important;
-    }
-
-    /* 代码块 */
-    pre code {
-      background: var(--secondary-green) !important;
-      border-left: 4px solid var(--primary-green);
-    }
-
-    /* 链接样式 */
-    a {
-      color: var(--primary-green);
-      border-bottom: 1px dashed currentColor;
-    }
-
-    a:hover {
-      color: var(--primary-brown);
-    }
-
-    /* 搜索框 */
-    .search input {
-      border: 2px solid var(--primary-brown) !important;
-      border-radius: 20px !important;
-      padding: 8px 16px !important;
-    }
-  </style>
-  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="app"></div>
@@ -97,6 +17,7 @@
       repo: 'Wewei_web',
       loadSidebar: true,
       coverpage: true,
+      subMaxLevel: 3,
       search: {
         placeholder: '🔍 搜索文档...',
         noData: '😢 未找到相关结果',
@@ -104,15 +25,24 @@
       },
       plugins: [
         function(hook) {
-          hook.afterEach(function(html) {
-            return html + '\n\n🍀 本文档采用 [docsify](https://docsify.js.org/) 构建';
-          });
+          hook.doneEach(function() {
+            // 保持子菜单展开状态
+            Array.from(document.querySelectorAll('.sidebar-nav li'))
+              .forEach(li => {
+                if(li.querySelector('ul')) {
+                  li.classList.add('collapsible')
+                  li.querySelector('a').addEventListener('click', function(e) {
+                    e.preventDefault()
+                    li.classList.toggle('active')
+                  })
+                }
+              })
+          })
         }
       ]
     }
   </script>
 
-  <!-- 必需插件 -->
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
