@@ -1,110 +1,76 @@
-/* 基础样式重置 */
+/* 设计系统 */
 :root {
-  --primary-green: #8BC34A;
-  --primary-brown: #795548;
-  --secondary-green: #DCEDC8;
-  --secondary-brown: #D7CCC8;
-  --text-primary: #212121;
-  --text-secondary: #757575;
-  --sidebar-width: 280px;
+  --arc-primary: #000000;
+  --arc-secondary: #FFFFFF;
+  --arc-accent: #4B78FF;
+  --arc-glass: rgba(255, 255, 255, 0.92);
+  --arc-spacing: 28px;
 }
 
-/* MUJI风格字体 */
+/* 基础架构 */
 body {
-  font-family: 'Hiragino Sans GB', 'Noto Sans CJK SC', 
-               'Source Han Sans CN', sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--arc-secondary);
+  color: var(--arc-primary);
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* 侧边栏优化 */
+/* 侧边栏系统 */
+.app-nav, 
 .sidebar {
-  width: var(--sidebar-width) !important;
-  padding: 20px 15px !important;
-  background: var(--secondary-brown) !important;
-  transform: translateX(0);
-  transition: transform 0.3s ease;
+  width: 280px !important;
+  background: var(--arc-glass) !important;
+  backdrop-filter: blur(40px);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  padding: var(--arc-spacing) !important;
+  transform: none !important;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
 }
 
-.sidebar-toggle {
-  background: var(--primary-brown) !important;
-  padding: 12px !important;
-}
-
-/* 侧边栏菜单 */
-.sidebar-nav li {
-  position: relative;
-  margin: 8px 0;
-}
-
-.sidebar-nav li > a {
-  display: block;
-  padding: 10px 15px !important;
-  color: var(--text-primary) !important;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: all 0.2s;
-  border-radius: 4px;
-}
-
-.sidebar-nav li > a:hover {
-  background: rgba(121, 85, 72, 0.08);
-  text-overflow: clip;
-}
-
-/* 折叠图标 */
-.sidebar-nav li.collapsible > a::after {
-  content: '▶';
-  position: absolute;
-  right: 15px;
-  color: var(--primary-brown);
-  transition: transform 0.2s;
-}
-
-.sidebar-nav li.collapsible.active > a::after {
-  content: '▼';
-  transform: rotate(90deg);
-}
-
-/* 主内容区优化 */
-.markdown-section {
+/* 主内容区 */
+.content {
+  margin-left: 280px !important;
+  padding: calc(var(--arc-spacing)*1.5) !important;
   max-width: 780px;
-  padding: 40px 5%;
-  margin-left: var(--sidebar-width);
-  text-align: left !important;
+  min-height: 100vh;
 }
 
-.markdown-section p {
-  line-height: 1.6;
-  margin: 1.2em 0;
+/* 代码块系统 */
+pre code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  padding: 1.2rem !important;
+  background: rgba(75, 120, 255, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  display: block;
 }
 
-.markdown-section h1,
-.markdown-section h2,
-.markdown-section h3 {
-  margin: 1.8em 0 1em;
-  font-weight: 400;
-}
-
-/* 分页导航 */
-.pagination-item {
-  font-size: 0.9em !important;
-  color: var(--primary-brown) !important;
-}
-
-/* 响应式处理 */
+/* 响应式布局 */
 @media (max-width: 768px) {
+  .app-nav,
   .sidebar {
+    width: 100% !important;
     transform: translateX(-100%);
-  }
-  
-  .sidebar-toggle {
-    display: block;
+    transition: transform 0.3s ease;
+    z-index: 1000;
   }
 
-  .markdown-section {
-    margin-left: 0;
-    padding: 30px 20px;
+  .content {
+    margin-left: 0 !important;
+    padding: var(--arc-spacing) !important;
+  }
+
+  .sidebar-toggle {
+    background: var(--arc-accent) !important;
+    padding: 12px !important;
+    z-index: 1001;
+  }
+
+  body.close .sidebar {
+    transform: translateX(0) !important;
   }
 }
