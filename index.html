@@ -1,130 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Wind娓_Lea</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="探索设计与技术的诗意表达">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <!-- 自定义样式 -->
-  <style>
-    :root {
-      --primary-black: #1a1a1a;
-      --primary-white: #ffffff;
-      --steel-gray: #4a4a4a;
-      --bv-green: #003D2B;
-      --transition-speed: 0.3s;
-    }
-
-    /* 基础样式重置 */
-    body {
-      background: var(--primary-white);
-      color: var(--primary-black);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.8;
-    }
-
-    /* 导航栏改造 */
-    .sidebar {
-      background: rgba(255, 255, 255, 0.92) !important;
-      backdrop-filter: saturate(180%) blur(20px);
-      border-right: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    /* 主内容区样式 */
-    .markdown-section {
-      max-width: 880px;
-      padding: 80px 40px;
-    }
-
-    /* 标题样式 */
-    h1, h2, h3 {
-      border-color: var(--steel-gray);
-      color: var(--primary-black);
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      letter-spacing: -0.03em;
-    }
-
-    /* 链接样式 */
-    a {
-      color: var(--bv-green);
-      text-decoration: none;
-      transition: color var(--transition-speed);
-    }
-
-    a:hover {
-      color: #002618;
-      text-decoration: underline;
-    }
-
-    /* 代码块样式 */
-    pre code {
-      background: rgba(0, 61, 43, 0.05);
-      border-radius: 8px;
-      padding: 1.2rem !important;
-    }
-
-    /* 页脚改造 */
-    footer {
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 2rem 0;
-      color: var(--steel-gray);
-    }
-
-    /* 响应式设计 */
-    @media (max-width: 768px) {
-      .markdown-section {
-        padding: 60px 20px;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
-  <!-- Docsify原生样式覆盖 -->
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
 </head>
 <body>
   <div id="app"></div>
-
   <script>
     window.$docsify = {
       plugins: [
-        function(hook) {
-          var footer = [
-            '<hr style="opacity: 0.2;"/>',
-            '<footer>',
-            '<span style="color: var(--steel-gray);">Powered by Lea&copy;2020.</span>',
-            '<span style="color: var(--steel-gray);">Published with <a href="https://github.com/docsifyjs/docsify" target="_blank" style="color: var(--bv-green);">docsify</a></span>',
-            '</footer>'
-          ].join('');
-          hook.afterEach(function(html) {
-            return html + footer;
-          });
-        }
+      function(hook) {
+      var footer = [
+        '<hr/>',
+        '<footer>',
+        '<span>Powered by Lea&copy;2020.</span>',
+        '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+        '</footer>'
+      ].join('');
+
+      hook.afterEach(function(html) {
+        return html + footer;
+      });
+      }
       ],
-      name: '<span style="color: var(--bv-green);">Wind娓</span>',
+      name: 'Wind娓',
       repo: 'Wewei_web',
       loadSidebar: true,
       coverpage: true,
       subMaxLevel: 3,
       alias: {
-        '/.*/_sidebar.md': '/_sidebar.md'
-      },
-      search: {
-        placeholder: '搜索文档...',
-        noData: '未找到相关结果'
-      }
+      '/.*/_sidebar.md': '/_sidebar.md'
+    } , 
+    search: 'auto'
     }
   </script>
-
-  <!-- 保持原有脚本引用 -->
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
@@ -132,16 +46,15 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script>
   <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
   <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
-  <script src="/docsify-pdf-embed.js"></script>
   <script>
     const gitalk = new Gitalk({
-      clientID:'cab5cb5567a602fe7e4a',
-      clientSecret:'6b69471c6334d737a5b0ee0cb46bc6223e86b6a6',
-      repo: 'Wewei_web',
-      owner: 'Lamxue',
-      admin: ['Lamxue'],
-      distractionFreeMode: false
+    clientID:cab5cb5567a602fe7e4a,
+    clientSecret:6b69471c6334d737a5b0ee0cb46bc6223e86b6a6,
+    repo: Wewei_web,
+    owner: Lamxue,
+    admin: [Lamxue],
+    // facebook-like distraction free mode
+    distractionFreeMode: false
     })
   </script>
   <script src="//unpkg.com/docsify-glossary/dist/docsify-glossary.min.js"></script>
