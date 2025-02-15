@@ -1,54 +1,62 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#4B78FF"> <!-- 主题色 -->
-  <meta name="apple-mobile-web-app-capable" content="yes"> <!-- iOS Web App支持 -->
-  
   <title>Wind娓_Lea</title>
-  
-  <!-- 预加载关键资源 -->
-  <link rel="preload" href="//unpkg.com/docsify/lib/themes/vue.css" as="style">
-  <link rel="preload" href="//unpkg.com/docsify/lib/docsify.min.js" as="script">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
 </head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      plugins: [
+      function(hook) {
+      var footer = [
+        '<hr/>',
+        '<footer>',
+        '<span>Powered by Lea&copy;2020.</span>',
+        '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+        '</footer>'
+      ].join('');
 
-<body class="polly-inspired">
-  <!-- 增强型导航栏 -->
-  <nav class="global-nav">
-    <div class="nav-brand">
-      <span class="brand-mark">⚡️</span>
-      <h1 class="brand-text">Wind娓</h1>
-    </div>
-    <div class="nav-actions">
-      <a href="https://github.com/Lamxue/Wewei_web" class="github-link">
-        <svg class="github-icon" width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
-          <!-- GitHub SVG路径 -->
-        </svg>
-      </a>
-    </div>
-  </nav>
-
-  <!-- 内容容器 -->
-  <main class="content-container">
-    <div id="app" role="main"></div>
-  </main>
-
-  <!-- 增强型页脚 -->
-  <footer class="global-footer">
-    <div class="footer-content">
-      <p class="license-info">© 2020-2023 Lea. 基于 MIT 许可证发布</p>
-      <div class="tech-stack">
-        <span>技术栈：</span>
-        <a href="https://docsify.js.org" target="_blank">Docsify</a>
-        <a href="https://gitalk.github.io" target="_blank">Gitalk</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- 优化后的脚本加载 -->
-  <script defer src="//unpkg.com/docsify/lib/plugins/search.js"></script>
-  <script defer src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script defer src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+      hook.afterEach(function(html) {
+        return html + footer;
+      });
+      }
+      ],
+      name: 'Wind娓',
+      repo: 'Wewei_web',
+      loadSidebar: true,
+      coverpage: true,
+      subMaxLevel: 3,
+      alias: {
+      '/.*/_sidebar.md': '/_sidebar.md'
+    } , 
+    search: 'auto'
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script>
+    const gitalk = new Gitalk({
+    clientID:cab5cb5567a602fe7e4a,
+    clientSecret:6b69471c6334d737a5b0ee0cb46bc6223e86b6a6,
+    repo: Wewei_web,
+    owner: Lamxue,
+    admin: [Lamxue],
+    // facebook-like distraction free mode
+    distractionFreeMode: false
+    })
+  </script>
+  <script src="//unpkg.com/docsify-glossary/dist/docsify-glossary.min.js"></script>
 </body>
 </html>
