@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>Wind娓_Lea</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Wind娓_Lea</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="探索设计与技术的诗意表达">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <!-- 自定义样式 -->
@@ -90,28 +87,15 @@
     }
   </style>
   <!-- Docsify原生样式覆盖 -->
-<link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-<link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/gitalk/dist/gitalk.css">
 </head>
 <body>
-<div id="app"></div>
+  <div id="app"></div>
 
-<script>
-window.$docsify = {
-plugins: [
-      function(hook) {
-      var footer = [
-        '<hr/>',
-        '<footer>',
-        '<span>Powered by Lea&copy;2020.</span>',
-        '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
-        '</footer>'
-      ].join('');
-
-      hook.afterEach(function(html) {
-        return html + footer;
-      });
-      }
+  <script>
+    window.$docsify = {
+      plugins: [
         function(hook) {
           var footer = [
             '<hr style="opacity: 0.2;"/>',
@@ -124,49 +108,42 @@ plugins: [
             return html + footer;
           });
         }
-],
-      name: 'Wind娓',
+      ],
       name: '<span style="color: var(--bv-green);">Wind娓</span>',
-repo: 'Wewei_web',
-loadSidebar: true,
-coverpage: true,
-subMaxLevel: 3,
-alias: {
-      '/.*/_sidebar.md': '/_sidebar.md'
-    } , 
-    search: 'auto'
+      repo: 'Wewei_web',
+      loadSidebar: true,
+      coverpage: true,
+      subMaxLevel: 3,
+      alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
       search: {
         placeholder: '搜索文档...',
         noData: '未找到相关结果'
       }
-}
-</script>
+    }
+  </script>
 
   <!-- 保持原有脚本引用 -->
-<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
-<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-@@ -50,15 +136,14 @@
-<script src="/docsify-pdf-embed.js"></script>
-<script>
-const gitalk = new Gitalk({
-    clientID:'cab5cb5567a602fe7e4a',
-    clientSecret:'6b69471c6334d737a5b0ee0cb46bc6223e86b6a6',
-    repo: Wewei_web,
-    owner: Lamxue,
-    admin: [Lamxue],
-    // facebook-like distraction free mode
-    distractionFreeMode: false
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
+  <script src="/docsify-pdf-embed.js"></script>
+  <script>
+    const gitalk = new Gitalk({
       clientID:'cab5cb5567a602fe7e4a',
       clientSecret:'6b69471c6334d737a5b0ee0cb46bc6223e86b6a6',
       repo: 'Wewei_web',
       owner: 'Lamxue',
       admin: ['Lamxue'],
       distractionFreeMode: false
-})
-</script>
-<script src="//unpkg.com/docsify-glossary/dist/docsify-glossary.min.js"></script>
+    })
+  </script>
+  <script src="//unpkg.com/docsify-glossary/dist/docsify-glossary.min.js"></script>
 </body>
 </html>
