@@ -1,0 +1,158 @@
+/* docsify-custom.css | MIT License */
+
+/* ===== 基础重置 ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== 导航栏 ===== */
+.app-nav {
+  background: #2c3e50 !important; /* 深蓝灰色背景 */
+  padding: 12px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.app-nav a {
+  color: #ecf0f1 !important;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.app-nav a:hover {
+  opacity: 0.8;
+  text-decoration: none !important;
+}
+
+/* ===== 侧边栏 ===== */
+.sidebar {
+  background: #f8f9fa !important; /* 浅灰色背景 */
+  border-right: 1px solid #e9ecef;
+  width: 280px !important;
+  padding: 20px;
+}
+
+.sidebar ul li a {
+  color: #34495e !important;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.sidebar ul li a:hover {
+  background: #e9ecef;
+  color: #2c3e50 !important;
+}
+
+.sidebar ul li.active > a {
+  background: #3498db !important; /* 高亮蓝色 */
+  color: white !important;
+}
+
+/* ===== 内容区域 ===== */
+.content {
+  max-width: 900px !important;
+  margin: 0 auto;
+  padding: 40px 50px;
+}
+
+.markdown-section h1, 
+.markdown-section h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.3em;
+  margin: 1.5em 0 1em;
+}
+
+.markdown-section h3 {
+  color: #34495e;
+  margin: 1.2em 0 0.8em;
+}
+
+/* ===== 代码块 ===== */
+.markdown-section pre {
+  background: #f8f9fa !important;
+  border: 1px solid #e9ecef !important;
+  border-radius: 6px;
+  padding: 15px !important;
+  margin: 1.2em 0;
+}
+
+.markdown-section code {
+  font-family: 'Fira Code', Monaco, Consolas, monospace !important;
+  font-size: 0.9em;
+  color: #2c3e50;
+}
+
+/* ===== 表格 ===== */
+.markdown-section table {
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.markdown-section th {
+  background: #3498db !important;
+  color: white !important;
+  padding: 12px !important;
+}
+
+.markdown-section td {
+  border: 1px solid #e9ecef !important;
+  padding: 10px !important;
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100% !important;
+    height: auto;
+    position: static;
+  }
+  
+  .content {
+    padding: 30px 20px;
+    margin-left: 0;
+  }
+  
+  .app-nav {
+    padding: 10px 20px;
+  }
+}
+
+/* ===== 自定义组件 ===== */
+/* 提示块 */
+.markdown-section .tip {
+  background: #e3f2fd;
+  border-left: 4px solid #3498db;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+}
+
+/* 警告块 */
+.markdown-section .warn {
+  background: #fff3e0;
+  border-left: 4px solid #ffa726;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+/* ===== 代码行号 ===== */
+pre[data-linenos] {
+  position: relative;
+  padding-left: 3em !important;
+}
+
+pre[data-linenos]::before {
+  content: attr(data-linenos);
+  position: absolute;
+  left: 0;
+  width: 2.5em;
+  padding-right: 1em;
+  color: #95a5a6;
+  text-align: right;
+  border-right: 1px solid #e9ecef;
+  background: #f8f9fa;
+}
