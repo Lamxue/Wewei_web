@@ -1,361 +1,158 @@
-:root {
-  --theme-color: #e50914;
-  --theme-color-dark: #b20710;
+/* docsify-custom.css | MIT License */
 
-  --text-color-base: #2e2e46;
-  --text-color-secondary: #646473;
-  --text-color-tertiary: #81818e;
-}
-
-body {
-  font-size: 100%;
-  line-height: 1.5;
-  color: var(--text-color-base);
-}
-
+/* ===== 基础重置 ===== */
 * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== 导航栏 ===== */
+.app-nav {
+  background: #2c3e50 !important; /* 深蓝灰色背景 */
+  padding: 12px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.app-nav a {
+  color: #ecf0f1 !important;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.app-nav a:hover {
+  opacity: 0.8;
   text-decoration: none !important;
 }
 
-a {
-  transition: all 0.3s linear;
-}
-
-.github-corner {
-  z-index: 5;
-}
-
-/****** Cover Page ******/
-section.cover {
-  padding-bottom: 112px; /* fixed footer (Netflix) height */
-  height: auto;
-  min-height: 100vh;
-  /**
-   * Intended to defeat this inline style on initial boot that flashes when on page load:
-   * https://github.com/docsifyjs/docsify/blob/8352a1e489abc2a7b6361fe02d696e1891a031cd/src/core/render/tpl.js#L56-L70
-   */
-  background: #fff !important;
-}
-
-section.cover .cover-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 0;
-  padding: 32px 16px 0;
-}
-
-section.cover img {
-  width: 400px;
-}
-
-section.cover h1 {
-  margin: 0.625rem 0 1rem;
-}
-
-section.cover blockquote,
-section.cover blockquote p {
-  margin: 0;
-}
-
-section.cover ul {
-  font-size: 1.25rem;
-  line-height: 2rem;
-  display: grid;
-  text-align: left;
-  grid-column-gap: 16px;
-  grid-row-gap: 20px;
-  grid-template-columns: repeat(2, 50%);
-  list-style: none;
-  max-width: unset;
-  margin: 1.5em 0;
-}
-
-section.cover ul li {
-  white-space: nowrap;
-}
-
-section.cover.show ~ .sidebar,
-section.cover.show ~ .sidebar-toggle {
-  display: none;
-}
-
-.cover-main .netflix-logo {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  background: #ffffff;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 40px;
-  z-index: 5;
-}
-
-.cover-main .netflix-logo .logo {
-  width: 125px;
-  height: 32px;
-  background: url('images/Netflix_Logo.png');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.cover-main .buttons {
-  width: 100%;
-}
-
-.cover-main .buttons a {
-  font-weight: 700;
-  position: relative;
-  display: inline-block;
-  padding: 12px 25px;
-  font-size: 14px;
-  text-align: center;
-  line-height: 18px;
-  color: #221f1f;
-  background: #fff;
-  outline: none;
-  border: none;
-  background-color: #fff;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  cursor: pointer;
-  margin: 0 1rem;
-  color: var(--theme-color);
-  overflow: hidden;
-  transition: color 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
-  vertical-align: baseline;
-  text-transform: uppercase;
-}
-
-.cover-main .buttons a:before,
-.cover-main .buttons a:after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border: 2px solid var(--theme-color);
-  box-sizing: border-box;
-}
-
-.cover-main .buttons a:after {
-  background: var(--theme-color);
-  transform: translateX(-101%);
-  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.cover-main .buttons a:hover {
-  color: white;
-  box-shadow: 0 5px 16px rgba(229, 9, 20, 0.3);
-}
-
-.cover-main .buttons a:hover:after {
-  transform: translateX(0);
-}
-
-.cover-main .buttons a span {
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 850px) {
-  section.cover ul {
-    grid-template-columns: 100%;
-    padding: 0;
-  }
-
-  section.cover ul li {
-    text-align: center;
-  }
-}
-
-@media (max-width: 450px) {
-  section.cover ul li {
-    white-space: normal;
-  }
-
-  .cover-main .buttons a {
-    width: 100%;
-    margin: 0.2rem 0;
-  }
-}
-
-/****** Sidebar ******/
-.sidebar .app-name-link img {
-  height: 150px;
+/* ===== 侧边栏 ===== */
+.sidebar {
+  background: #f8f9fa !important; /* 浅灰色背景 */
+  border-right: 1px solid #e9ecef;
+  width: 280px !important;
+  padding: 20px;
 }
 
 .sidebar ul li a {
-  font-size: 15px;
+  color: #34495e !important;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
 }
 
 .sidebar ul li a:hover {
-  color: var(--theme-color);
+  background: #e9ecef;
+  color: #2c3e50 !important;
 }
 
-.app-sub-sidebar li:before {
-  display: none;
+.sidebar ul li.active > a {
+  background: #3498db !important; /* 高亮蓝色 */
+  color: white !important;
 }
 
-.sidebar .search .clear-button {
-  cursor: pointer;
+/* ===== 内容区域 ===== */
+.content {
+  max-width: 900px !important;
+  margin: 0 auto;
+  padding: 40px 50px;
 }
 
-/****** Sidebar Toggle ******/
-.sidebar-toggle {
-  cursor: pointer;
+.markdown-section h1, 
+.markdown-section h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.3em;
+  margin: 1.5em 0 1em;
 }
 
-body .sidebar-toggle {
-  background: none;
-  top: 1.5rem;
-  left: calc(300px + 1.5rem);
-  cursor: pointer;
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 0;
-  transition: left 0.25s ease-out;
+.markdown-section h3 {
+  color: #34495e;
+  margin: 1.2em 0 0.8em;
 }
 
-body .sidebar-toggle span {
-  background-color: var(--theme-color);
-  height: 0.2rem;
-  width: 1.5rem;
-  position: absolute;
-  left: 0;
-  margin: 0;
-  transform-origin: 0;
-  border-radius: 1px;
+/* ===== 代码块 ===== */
+.markdown-section pre {
+  background: #f8f9fa !important;
+  border: 1px solid #e9ecef !important;
+  border-radius: 6px;
+  padding: 15px !important;
+  margin: 1.2em 0;
 }
 
-body.close .sidebar-toggle {
-  transition: left 0.25s ease-out;
-  width: 1.5rem;
-  height: 1.5rem;
-  left: 1.5rem;
+.markdown-section code {
+  font-family: 'Fira Code', Monaco, Consolas, monospace !important;
+  font-size: 0.9em;
+  color: #2c3e50;
 }
 
-body.close .sidebar-toggle span {
-  transform-origin: center;
-}
-
-body .sidebar-toggle span:nth-child(1) {
-  top: 0;
-}
-body .sidebar-toggle span:nth-child(2) {
-  top: 0.5rem;
-}
-body .sidebar-toggle span:nth-child(3) {
-  top: 1rem;
-}
-
-.sidebar-toggle:hover {
-  opacity: 0.8;
-}
-.sidebar-toggle .sidebar-toggle-button:hover {
-  opacity: 1;
-}
-
-@media screen and (max-width: 768px) {
-  body .sidebar-toggle {
-    left: 1rem;
-  }
-
-  body.close .sidebar-toggle {
-    left: calc(300px + 1.5rem);
-  }
-}
-
-/****** Markdown General ******/
-.markdown-section {
-  padding: 30px 30px 40px;
-}
-
-.markdown-section a {
-  text-decoration: none;
-  border-bottom: 0.1rem solid var(--theme-color);
-  transition: all 0.3s ease;
-}
-
-.markdown-section a:hover {
-  border-color: var(--theme-color-dark);
-  color: var(--theme-color-dark);
-}
-
-.markdown-section a.anchor {
-  border: none;
-}
-
-/****** Markdown Table ******/
+/* ===== 表格 ===== */
 .markdown-section table {
-  display: table;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.markdown-section table tr {
-  border-width: 0.15rem 0;
-  border-style: solid;
-  border-color: #f1f1f2;
+.markdown-section th {
+  background: #3498db !important;
+  color: white !important;
+  padding: 12px !important;
 }
 
-.markdown-section table thead tr {
-  text-transform: uppercase;
-  font-size: 90%;
-  border-top: none;
+.markdown-section td {
+  border: 1px solid #e9ecef !important;
+  padding: 10px !important;
 }
 
-.markdown-section table tbody tr:last-of-type {
-  border-bottom: none;
+/* ===== 响应式设计 ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100% !important;
+    height: auto;
+    position: static;
+  }
+  
+  .content {
+    padding: 30px 20px;
+    margin-left: 0;
+  }
+  
+  .app-nav {
+    padding: 10px 20px;
+  }
 }
 
-.markdown-section table tr:nth-child(2n) {
-  background-color: transparent;
+/* ===== 自定义组件 ===== */
+/* 提示块 */
+.markdown-section .tip {
+  background: #e3f2fd;
+  border-left: 4px solid #3498db;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
 }
 
-.markdown-section table td,
-.markdown-section table th {
-  border: none;
-  padding: 1.1rem 0.5rem;
-  text-align: left;
-}
-
-.markdown-section table td p {
-  margin: 0;
-}
-
-.markdown-section blockquote {
+/* 警告块 */
+.markdown-section .warn {
+  background: #fff3e0;
+  border-left: 4px solid #ffa726;
+  padding: 1em;
   margin: 1em 0;
 }
 
-.markdown-section blockquote > p {
-  font-weight: 500;
+/* ===== 代码行号 ===== */
+pre[data-linenos] {
+  position: relative;
+  padding-left: 3em !important;
 }
 
-.markdown-section em,
-.markdown-section blockquote {
-  color: var(--text-color-tertiary);
-}
-
-/****** CODE HIGHLIGHTING ******/
-.token.string {
-  color: #42b983;
-}
-
-.token.boolean,
-.token.number {
-  color: var(--theme-color);
-}
-
-.lang-bash .token.function,
-.lang-json .token.property {
-  color: #e96900;
-}
-
-/****** COPY TO CLIPBOARD ******/
-.docsify-copy-code-button {
-  font-size: 0.7em !important;
+pre[data-linenos]::before {
+  content: attr(data-linenos);
+  position: absolute;
+  left: 0;
+  width: 2.5em;
+  padding-right: 1em;
+  color: #95a5a6;
+  text-align: right;
+  border-right: 1px solid #e9ecef;
+  background: #f8f9fa;
 }
